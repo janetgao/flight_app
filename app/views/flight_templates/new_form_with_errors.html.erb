@@ -1,0 +1,61 @@
+<% if @flight.present? %>
+  <% if @flight.errors.any? %>
+    <% @flight.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new flight
+</h1>
+
+
+<hr>
+
+<form action="/create_flight" method="post">
+
+  <div class="form-group">
+    <label for="departs_at">
+      Departs at
+    </label>
+
+    <input type="text" id="departs_at" name="departs_at" class="form-control" value="<%= @flight.departs_at %>">
+  </div>
+
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @flight.user_id %>">
+  </div>
+
+  <div class="form-group">
+    <label for="description">
+      Description
+    </label>
+
+    <input type="text" id="description" name="description" class="form-control" value="<%= @flight.description %>">
+  </div>
+
+  <div class="form-group">
+    <label for="message_sent">
+      Message sent
+    </label>
+
+    <input type="text" id="message_sent" name="message_sent" class="form-control" value="<%= @flight.message_sent %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create flight
+  </button>
+</form>
+
+<hr>
+
+<a href="/flights">
+  Go back
+</a>
